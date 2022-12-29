@@ -29,6 +29,15 @@ class RestaurantsController < ActionController::Base
 		render json: { data: restaurants }
 	end
 
+	def update
+    restaurant = Restaurant.find(params[:id])
+    if restaurant.update(restaurant_params)
+      render json: restaurant
+    else
+      render json: restaurant.errors
+    end
+	end
+
 	private
 
 	def restaurant_params
