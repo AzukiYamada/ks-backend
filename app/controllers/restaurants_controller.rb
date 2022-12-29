@@ -17,10 +17,16 @@ class RestaurantsController < ActionController::Base
 	def create
 		restaurants = Restaurant.new(restaurant_params)
 		if restaurants.save
-			render json: {data: restaurants }
+			render json: { data: restaurants }
 		else
-			render json: {data: restaurants.errors }
+			render json: { data: restaurants.errors }
 		end
+	end
+
+	def destroy
+		restaurants = Restaurant.find(params[:id])
+		restaurants.destroy
+		render json: { data: restaurants }
 	end
 
 	private
