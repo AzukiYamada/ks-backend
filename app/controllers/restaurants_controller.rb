@@ -1,4 +1,7 @@
 class RestaurantsController < ActionController::Base
+
+	protect_from_forgery
+
 	def index
 		restaurants = Restaurant.all
 
@@ -14,9 +17,9 @@ class RestaurantsController < ActionController::Base
 	def create
 		restaurants = Restaurant.new(restaurant_params)
 		if restaurants.save
-			render json: { status: 'SUCCESS', data: restaurants }
+			render json: {data: restaurants }
 		else
-			render json: { status: 'ERROR', data: restaurants.errors }
+			render json: {data: restaurants.errors }
 		end
 	end
 
