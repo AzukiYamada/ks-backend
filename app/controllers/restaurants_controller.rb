@@ -9,24 +9,24 @@ class RestaurantsController < ActionController::Base
 	end
 
 	def show
-		restaurants = Restaurant.find(params[:id])
+		restaurant = Restaurant.find(params[:id])
 
-		render json: { data: restaurants }
+		render json: { data: restaurant }
 	end
 
 	def create
-		restaurants = Restaurant.new(restaurant_params)
-		if restaurants.save
-			render json: { data: restaurants }
+		restaurant = Restaurant.new(restaurant_params)
+		if restaurant.save
+			render json: { data: restaurant }
 		else
-			render json: { data: restaurants.errors }
+			render json: { data: restaurant.errors }
 		end
 	end
 
 	def destroy
-		restaurants = Restaurant.find(params[:id])
-		restaurants.destroy
-		render json: { data: restaurants }
+		restaurant = Restaurant.find(params[:id])
+		restaurant.destroy
+		render json: { data: restaurant }
 	end
 
 	def update
