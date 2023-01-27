@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-class RestaurantsController < ActionController::Base
-  protect_from_forgery
+class RestaurantsController < ApplicationController
 
   def index
     restaurants = Restaurant.all
@@ -16,27 +15,22 @@ class RestaurantsController < ActionController::Base
   end
 
   def create
-    restaurant = Restaurant.new(restaurant_params)
-    if restaurant.save
-      render json: { data: restaurant }
-    else
-      render json: { data: restaurant.errors }
-    end
+    restaurant = Restaurant.create!(restaurant_params)
+
+    render json: { data: restaurant }
   end
 
   def destroy
     restaurant = Restaurant.find(params[:id])
-    restaurant.destroy
+    restaurant.destroy!
 
     head :ok
   end
 
   def update
     restaurant = Restaurant.find(params[:id])
-    if restaurant.update(restaurant_params)
+    if restaurant.update!(restaurant_params)
       render json: restaurant
-    else
-      render json: restaurant.errors
     end
   end
 

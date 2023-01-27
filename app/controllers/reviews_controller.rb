@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-class ReviewsController < ActionController::Base
-  protect_from_forgery
+class ReviewsController < ApplicationController
 
   def destroy
     review = Review.find(params[:id])
-    review.destroy
+    review.destroy!
+
     head :ok
   end
 end
