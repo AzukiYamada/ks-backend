@@ -4,13 +4,13 @@ class RestaurantsController < ActionController::Base
   def index
     restaurants = Restaurant.all
 
-    render json: { data: restaurants }
+    render json: { data: restaurants.as_json(include: :reviews) }
   end
 
   def show
     restaurant = Restaurant.find(params[:id])
 
-    render json: { data: restaurant }
+    render json: { data: restaurant.as_json(include: :reviews)}
   end
 
   def create

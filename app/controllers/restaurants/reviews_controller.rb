@@ -4,12 +4,12 @@ class Restaurants::ReviewsController < ActionController::Base
   def create
 		restaurant = Restaurant.find(params[:restaurant_id])
     review = Review.new(review_params)
-		review.restaurant = restaurant
+		review.restaurant_id = restaurant.id
 
     if review.save
-      render json: { data: reviews }
+      render json: { data: review }
     else
-      render json: { data: reviews.errors }
+      render json: { data: review.errors }
     end
   end
 

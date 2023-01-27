@@ -17,15 +17,16 @@ ActiveRecord::Schema.define(version: 2023_01_26_185109) do
     t.text "description"
     t.integer "price"
     t.text "thumbnail_url", null: false
-    has_many :reviews
   end
 
   create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "content"
     t.string "user_name"
+    t.bigint "restaurant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    belongs_to :restaurant, dependent :destroy
+    t.index ["restaurant_id"], name: "index_reviews_on_restaurant_id"
   end
 
+  add_foreign_key "reviews", "restaurants"
 end
