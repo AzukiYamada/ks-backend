@@ -29,7 +29,7 @@ class RestaurantsController < ApplicationController
   def update
     restaurant = Restaurant.find(params[:id])
     restaurant.update!(restaurant_params)
-    render json: restaurant
+    render json: { data: restaurant }
   end
 
   private
