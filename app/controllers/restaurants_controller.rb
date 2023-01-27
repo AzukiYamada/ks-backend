@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class RestaurantsController < ApplicationController
-
   def index
     restaurants = Restaurant.all
 
@@ -29,9 +28,8 @@ class RestaurantsController < ApplicationController
 
   def update
     restaurant = Restaurant.find(params[:id])
-    if restaurant.update!(restaurant_params)
-      render json: restaurant
-    end
+    restaurant.update!(restaurant_params)
+    render json: restaurant
   end
 
   private
