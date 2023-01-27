@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -6,15 +8,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Restaurant.create ([
-	{ name: 'カワウソレストラン',
-    description: 'すみっこ可愛い',
-    price: '1000',
-		thumbnail_url: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.san-x.co.jp%2Fsumikko%2Fcampaign%2Fsumikko_camp%2F&psig=AOvVaw1sMoWviCni1FwBB7hc2Oye&ust=1671169690130000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCNDLoq_2-vsCFQAAAAAdAAAAABAE",
-	},
-	{ name: 'ウオツネ',
-    description: '中目黒にある魚が美味しい、昼は定食屋、夜は居酒屋。',
-    price: '1200',
-		thumbnail_url: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.san-x.co.jp%2Fsumikko%2Fcampaign%2Fsumikko_camp%2F&psig=AOvVaw1sMoWviCni1FwBB7hc2Oye&ust=1671169690130000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCNDLoq_2-vsCFQAAAAAdAAAAABAE",
-	}
-])
+Restaurant.create([
+                    { name: 'カワウソレストラン',
+                      description: 'すみっこ可愛い',
+                      price: '1000',
+                      thumbnail_url: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.san-x.co.jp%2Fsumikko%2Fcampaign%2Fsumikko_camp%2F&psig=AOvVaw1sMoWviCni1FwBB7hc2Oye&ust=1671169690130000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCNDLoq_2-vsCFQAAAAAdAAAAABAE' },
+                    { name: 'ウオツネ',
+                      description: '中目黒にある魚が美味しい、昼は定食屋、夜は居酒屋。',
+                      price: '1200',
+                      thumbnail_url: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.san-x.co.jp%2Fsumikko%2Fcampaign%2Fsumikko_camp%2F&psig=AOvVaw1sMoWviCni1FwBB7hc2Oye&ust=1671169690130000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCNDLoq_2-vsCFQAAAAAdAAAAABAE' }
+                  ])

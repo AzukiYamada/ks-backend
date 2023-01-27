@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RestaurantsController < ActionController::Base
   protect_from_forgery
 
@@ -10,7 +12,7 @@ class RestaurantsController < ActionController::Base
   def show
     restaurant = Restaurant.find(params[:id])
 
-    render json: { data: restaurant.as_json(include: :reviews)}
+    render json: { data: restaurant.as_json(include: :reviews) }
   end
 
   def create
