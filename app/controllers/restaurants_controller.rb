@@ -1,5 +1,4 @@
 class RestaurantsController < ActionController::Base
-
   protect_from_forgery
 
   def index
@@ -26,7 +25,8 @@ class RestaurantsController < ActionController::Base
   def destroy
     restaurant = Restaurant.find(params[:id])
     restaurant.destroy
-    render json: { data: restaurant }
+
+    head :ok
   end
 
   def update
