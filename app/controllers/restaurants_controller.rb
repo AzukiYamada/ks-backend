@@ -4,19 +4,19 @@ class RestaurantsController < ApplicationController
   def index
     restaurants = Restaurant.all
 
-    render json: { data: restaurants.as_json(include: :reviews) }
+    render json: { restaurants: restaurants.as_json(include: :reviews) }
   end
 
   def show
     restaurant = Restaurant.find(params[:id])
 
-    render json: { data: restaurant.as_json(include: :reviews) }
+    render json: { restaurants: restaurant.as_json(include: :reviews) }
   end
 
   def create
     restaurant = Restaurant.create!(restaurant_params)
 
-    render json: { data: restaurant }
+    render json: { restaurants: restaurant }
   end
 
   def destroy
