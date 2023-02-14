@@ -5,4 +5,6 @@ class Restaurant < ApplicationRecord
   validates :thumbnail_url, presence: true
 
   has_many :reviews, dependent: :destroy
+  has_many :restaurant_holidays
+  has_many :holidays, through: :restaurant_holidays
 end

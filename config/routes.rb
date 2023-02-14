@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   end
 
   resources :reviews, only: %i[destroy]
+  resources :holidays, only: %i[index]
 end

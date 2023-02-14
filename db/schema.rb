@@ -12,7 +12,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_230_126_185_109) do
+ActiveRecord::Schema.define(version: 20_230_212_035_127) do
+  create_table 'holidays', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.string 'value'
+    t.string 'label'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+  end
+
+  create_table 'restaurant_holidays', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.bigint 'restaurant_id'
+    t.bigint 'holiday_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['holiday_id'], name: 'index_restaurant_holidays_on_holiday_id'
+    t.index ['restaurant_id'], name: 'index_restaurant_holidays_on_restaurant_id'
+  end
+
   create_table 'restaurants', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
     t.string 'name', null: false
     t.text 'description'
@@ -29,5 +45,7 @@ ActiveRecord::Schema.define(version: 20_230_126_185_109) do
     t.index ['restaurant_id'], name: 'index_reviews_on_restaurant_id'
   end
 
+  add_foreign_key 'restaurant_holidays', 'holidays'
+  add_foreign_key 'restaurant_holidays', 'restaurants'
   add_foreign_key 'reviews', 'restaurants'
 end
