@@ -20,12 +20,12 @@ Restaurant.create([
                   ])
 
 Holiday.create([
-  { label: '月曜日', value: 'monday' },
-  { label: '火曜日', value: 'tuesday' },
-  { label: '水曜日', value: 'wednesday' },
-  { label: '木曜日', value: 'thursday' },
-  { label: '金曜日', value: 'friday' },
-  { label: '土曜日', value: 'saturday' },
-  { label: '日曜日', value: 'sunday' },
-  { label: '祝日', value: 'holiday' },
-])
+                 { label: '月曜日', value: 'monday' },
+                 { label: '火曜日', value: 'tuesday' },
+                 { label: '水曜日', value: 'wednesday' },
+                 { label: '木曜日', value: 'thursday' },
+                 { label: '金曜日', value: 'friday' },
+                 { label: '土曜日', value: 'saturday' },
+                 { label: '日曜日', value: 'sunday' },
+                 { label: '祝日', value: 'holiday' }
+               ])
