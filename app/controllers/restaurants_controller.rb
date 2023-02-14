@@ -15,9 +15,10 @@ class RestaurantsController < ApplicationController
 
   def create
     restaurant = Restaurant.create!(restaurant_params)
-    holiday_ids = params[:holiday_ids]
-    holiday_ids.each do |holiday_id|
-      RestaurantHoliday.create!(restaurant_id: restaurant.id, holiday_id: holiday_id)
+    Restaurant.transaction do
+      params[:holiday_ids].each do |holiday_id|
+        restaurant.restaurant_holidays.create!(holiday_id: holiday_id)
+      end
     end
     render json: { restaurants: restaurant.as_json(include: %i[holidays reviews]) }
   end
