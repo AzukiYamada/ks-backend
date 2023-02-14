@@ -25,7 +25,6 @@ class RestaurantsController < ApplicationController
 
   def destroy
     restaurant = Restaurant.find(params[:id])
-    restaurant.restaurant_holidays.each(&:destroy!)
     restaurant.destroy!
 
     head :ok
