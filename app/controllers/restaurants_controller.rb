@@ -4,20 +4,24 @@ class RestaurantsController < ApplicationController
   def index
     restaurants = Restaurant.all
 
-    render json: { restaurants: restaurants.as_json(include: :reviews) }
+    render json: { restaurants: restaurants.as_json(include: { holidays: {}, reviews: {} }) }
   end
 
   def show
     restaurant = Restaurant.find(params[:id])
 
-    render json: { restaurants: restaurant.as_json(include: :reviews) }
+    render json: { restaurants: restaurant.as_json(include: { holidays: {}, reviews: {} }) }
   end
 
   def create
     restaurant = Restaurant.create!(restaurant_params)
-
-    render json: { restaurants: restaurant }
+    holiday_ids = params[:holiday_ids]
+    holiday_ids.each do |holiday_id|
+      RestaurantHoliday.create!(restaurant_id: restaurant.id, holiday_id: holiday_id)
+    end
+    render json: { restaurants: restaurant.as_json(include: { holidays: {}, reviews: {} }) }
   end
+
 
   def destroy
     restaurant = Restaurant.find(params[:id])
@@ -29,7 +33,7 @@ class RestaurantsController < ApplicationController
   def update
     restaurant = Restaurant.find(params[:id])
     restaurant.update!(restaurant_params)
-    render json: { data: restaurant }
+    render json: { data: restaurant.as_json(include: { holidays: {}, reviews: {} }) }
   end
 
   private
