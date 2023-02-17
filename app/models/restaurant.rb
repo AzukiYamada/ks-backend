@@ -6,5 +6,5 @@ class Restaurant < ApplicationRecord
 
   has_many :reviews, dependent: :destroy
   has_many :restaurant_holidays
-  has_many :holidays, through: :restaurant_holidays
+  has_many :holidays, through: :restaurant_holidays, dependent: :destroy
 end
