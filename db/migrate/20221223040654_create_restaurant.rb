@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CreateRestaurant < ActiveRecord::Migration[5.2]
+class CreateRestaurant < ActiveRecord::Migration[7.0]
   def change
     create_table :restaurants do |t|
       t.string :name, null: false
@@ -8,7 +8,7 @@ class CreateRestaurant < ActiveRecord::Migration[5.2]
       t.integer :price
       t.text :thumbnail_url, null: false
 
-      t.timestamp
+      t.timestamps
     end
   end
 end
