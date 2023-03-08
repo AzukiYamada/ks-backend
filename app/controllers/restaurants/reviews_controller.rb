@@ -14,7 +14,7 @@ module Restaurants
     private
 
     def review_params
-      params.permit(:user_name, :content, :restaurant_id)
+      params.permit(:user_name, :content)
     end
   end
 end
